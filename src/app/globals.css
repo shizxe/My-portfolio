@@ -1,0 +1,228 @@
+@theme {
+  --color-navy-950: #060912;
+  --color-navy-900: #0a0e1a;
+  --color-navy-800: #111827;
+  --color-navy-700: #1a2235;
+  --color-purple-500: #8b6bb8;
+  --color-purple-600: #6b4c9a;
+  --color-purple-700: #4a3570;
+  --color-cyan-400: #7dd3e0;
+  --color-cyan-500: #5ec4d4;
+  --color-gold-400: #f0c674;
+  --color-gold-500: #d4a853;
+  --color-grass-400: #6db87a;
+  --color-grass-500: #4a8c5c;
+  --font-display: var(--font-pixel);
+  --font-body: var(--font-sans);
+}
+
+@import "tailwindcss";
+
+:root {
+  --background: #060912;
+  --foreground: #e8ecf4;
+  --accent-purple: #8b6bb8;
+  --accent-cyan: #5ec4d4;
+  --accent-gold: #d4a853;
+  --accent-grass: #4a8c5c;
+  --glow-purple: rgba(139, 107, 184, 0.35);
+  --glow-cyan: rgba(94, 196, 212, 0.25);
+  --glow-gold: rgba(212, 168, 83, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(139, 107, 184, 0.4);
+  color: #fff;
+}
+
+.font-pixel {
+  font-family: var(--font-pixel), monospace;
+}
+
+.font-body {
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Pixel rendering */
+.pixel-art {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-navy-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-purple-600);
+  border-radius: 3px;
+}
+
+/* Section transitions */
+.section-fade {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Glow utilities */
+.glow-purple {
+  box-shadow: 0 0 30px var(--glow-purple), 0 0 60px rgba(107, 76, 154, 0.15);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 25px var(--glow-cyan);
+}
+
+.glow-gold {
+  box-shadow: 0 0 20px var(--glow-gold);
+}
+
+/* Pixel border */
+.pixel-border {
+  border: 2px solid rgba(139, 107, 184, 0.4);
+  box-shadow:
+    inset 0 0 0 1px rgba(94, 196, 212, 0.1),
+    0 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Inventory slot */
+.inventory-slot {
+  background: linear-gradient(145deg, rgba(26, 34, 53, 0.9), rgba(10, 14, 26, 0.95));
+  border: 2px solid rgba(139, 107, 184, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.inventory-slot:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(94, 196, 212, 0.6);
+  box-shadow: 0 8px 32px rgba(94, 196, 212, 0.15), 0 0 20px rgba(139, 107, 184, 0.2);
+}
+
+/* Quest card */
+.quest-card {
+  background: linear-gradient(160deg, rgba(17, 24, 39, 0.95) 0%, rgba(10, 14, 26, 0.98) 100%);
+  border: 2px solid rgba(107, 76, 154, 0.35);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+}
+
+.quest-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(139, 107, 184, 0.15);
+}
+
+/* Portal ring animation */
+@keyframes portal-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes portal-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes dragon-fly {
+  0% {
+    transform: translateX(-120px) translateY(0);
+  }
+  25% {
+    transform: translateX(25vw) translateY(-20px);
+  }
+  50% {
+    transform: translateX(50vw) translateY(10px);
+  }
+  75% {
+    transform: translateX(75vw) translateY(-15px);
+  }
+  100% {
+    transform: translateX(calc(100vw + 120px)) translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
