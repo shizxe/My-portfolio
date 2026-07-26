@@ -5,12 +5,6 @@ import Navigation from "@/components/layout/Navigation";
 import MouseGlow from "@/components/layout/MouseGlow";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 
-import { ScrollProgress } from "@/components/layout/ScrollProgress";
-import CursorClickEffect from "@/components/ui/CursorEffect";
-import GameCursor from "@/components/ui/GameCursor";
-import WeaponCursor from "@/components/ui/WeaponCursor";
-import CursorMoveEffect from "@/components/ui/CursorMoveEffect";
-
 const pixelFont = Press_Start_2P({
   weight: "400",
   subsets: ["latin"],
@@ -40,8 +34,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Thi Ha" }],
   openGraph: {
     title: "Thi Ha — Pixel Quest Portfolio",
-    description:
-      "Enter a pixel fantasy world and explore my developer journey.",
+    description: "Enter a pixel fantasy world and explore my developer journey.",
     type: "website",
   },
 };
@@ -54,15 +47,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${pixelFont.variable} ${bodyFont.variable}`}>
       <body className="bg-navy-950 text-gray-100 antialiased">
-        <CursorClickEffect></CursorClickEffect>
-        {/* <GameCursor /> */}
-        <WeaponCursor />
-        <CursorMoveEffect />
         <SmoothScroll>
-          <ScrollProgress />
           <MouseGlow />
-          <div className="grain" aria-hidden />
-          <div className="vignette" aria-hidden />
           <Navigation />
           <main>{children}</main>
         </SmoothScroll>
