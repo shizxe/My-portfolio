@@ -3,7 +3,6 @@ import BeginningSection from "@/components/sections/BeginningSection";
 import InventorySection from "@/components/sections/InventorySection";
 import QuestsSection from "@/components/sections/QuestsSection";
 import JourneySection from "@/components/sections/JourneySection";
-import { ChapterLearning } from "@/components/sections/ChapterLearning";
 import PortalSection, { Footer } from "@/components/sections/PortalSection";
 
 export default function Home() {
@@ -12,7 +11,6 @@ export default function Home() {
       <HeroSection />
       <BeginningSection />
       <InventorySection />
-      <ChapterLearning />
       <QuestsSection />
       <JourneySection />
       <PortalSection />
